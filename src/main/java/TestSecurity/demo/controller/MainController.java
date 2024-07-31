@@ -1,7 +1,7 @@
 package TestSecurity.demo.controller;
 
 import TestSecurity.demo.dto.JoinDTO;
-import TestSecurity.service.JoinService;
+import TestSecurity.demo.service.JoinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
