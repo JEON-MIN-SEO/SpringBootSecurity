@@ -1,5 +1,7 @@
 package TestSecurity.demo.service;
 
+import TestSecurity.demo.dto.CustomUserDetailsDTO;
+import TestSecurity.demo.entity.UserEntity;
 import TestSecurity.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +17,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userData = userRepository.findByUserName(username);
+        if (userData != null) {
+            return new CustomUserDetailsDTO(userData);
+        }
         return null;
     }
 }
